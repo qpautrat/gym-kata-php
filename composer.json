@@ -1,0 +1,19 @@
+{
+    "name": "qpautrat/gym-kata",
+    "require": {
+        "php": "^8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Acme\\Gym\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Acme\\Gym\\Test\\": "tests/"
+        }
+    }
+}
