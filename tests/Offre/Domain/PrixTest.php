@@ -19,6 +19,6 @@ class PrixTest extends TestCase
 
         // Act & Assert
         $this->expectException(LeMontantNePeutPasEtreNegatif::class);
-        new Prix($montant);
+        Prix::avecUnMontant($montant);
     }
 }

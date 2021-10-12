@@ -17,11 +17,11 @@ class ChangerLePrixDeLaFormuleTest extends TestCase
     {
         // Arrange
         $id = 1;
-        $prix = new Prix(100);
+        $prix = Prix::avecUnMontant(100);
         $formule = new Formule($id, $prix);
         $formuleRepository = new InMemoryFormuleRepository([$id => $formule]);
         $useCase = new ChangerLePrixDeLaFormule($formuleRepository);
-        $nouveauPrix = new Prix(200);
+        $nouveauPrix = Prix::avecUnMontant(200);
 
         // Act
         $useCase->execute($id, $nouveauPrix);

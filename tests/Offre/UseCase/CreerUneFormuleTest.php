@@ -16,7 +16,7 @@ class CreerUneFormuleTest extends TestCase
     {
         // Arrange
         $id = 1;
-        $prix = new Prix(100);
+        $prix = Prix::avecUnMontant(100);
         $formuleRepository = new InMemoryFormuleRepository();
         $useCase = new CreerUneFormule($formuleRepository);
 
