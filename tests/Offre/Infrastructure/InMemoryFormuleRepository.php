@@ -18,7 +18,7 @@ class InMemoryFormuleRepository implements FormuleRepository, \ArrayAccess
 
     public function offsetGet($offset)
     {
-        // TODO: Implement offsetGet() method.
+        return $this->formules[$offset];
     }
 
     public function offsetSet($offset, $value)
@@ -34,5 +34,10 @@ class InMemoryFormuleRepository implements FormuleRepository, \ArrayAccess
     public function ajoute(Formule $formule): void
     {
         $this->formules[$formule->id()] = $formule;
+    }
+
+    public function cherche(int $id): Formule
+    {
+        return $this->formules[$id];
     }
 }

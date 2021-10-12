@@ -3,7 +3,7 @@
 namespace Acme\Gym\Test\Offre\Domain;
 
 use Acme\Gym\Offre\Domain\Formule;
-use Acme\Gym\Offre\Domain\PrixNegatif;
+use Acme\Gym\Offre\Domain\LePrixNePeutPasEtreNegatif;
 use PHPUnit\Framework\TestCase;
 
 class FormuleTest extends TestCase
@@ -18,7 +18,7 @@ class FormuleTest extends TestCase
         $prix = -100;
 
         // Act & Assert
-        $this->expectException(PrixNegatif::class);
+        $this->expectException(LePrixNePeutPasEtreNegatif::class);
         new Formule($id, $prix);
     }
 }
