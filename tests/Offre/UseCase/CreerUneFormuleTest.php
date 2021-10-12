@@ -15,11 +15,12 @@ class CreerUneFormuleTest extends TestCase
     {
         // Arrange
         $id = 1;
+        $prix = 100;
         $formuleRepository = new InMemoryFormuleRepository();
         $useCase = new CreerUneFormule($formuleRepository);
 
         // Act
-        $useCase->execute($id);
+        $useCase->execute($id, $prix);
 
         // Assert
         $this->assertTrue(isset($formuleRepository[$id]));
