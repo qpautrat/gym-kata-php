@@ -1,0 +1,37 @@
+<?php
+
+namespace Acme\Gym\Test\Offre\Infrastructure;
+
+use Acme\Gym\Offre\Domain\Formule;
+
+class InMemoryFormuleRepository implements \ArrayAccess
+{
+    public function __construct(private array $formules = [])
+    {
+    }
+
+    public function offsetExists($offset)
+    {
+        return isset($this->formules[$offset]);
+    }
+
+    public function offsetGet($offset)
+    {
+        // TODO: Implement offsetGet() method.
+    }
+
+    public function offsetSet($offset, $value)
+    {
+        // TODO: Implement offsetSet() method.
+    }
+
+    public function offsetUnset($offset)
+    {
+        // TODO: Implement offsetUnset() method.
+    }
+
+    public function ajoute(Formule $formule)
+    {
+        $this->formules[$formule->id()] = $formule;
+    }
+}
