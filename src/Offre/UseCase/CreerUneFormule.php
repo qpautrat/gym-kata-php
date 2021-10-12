@@ -3,11 +3,11 @@
 namespace Acme\Gym\Offre\UseCase;
 
 use Acme\Gym\Offre\Domain\Formule;
-use Acme\Gym\Test\Offre\Infrastructure\InMemoryFormuleRepository;
+use Acme\Gym\Offre\Domain\FormuleRepository;
 
 class CreerUneFormule
 {
-    public function __construct(private InMemoryFormuleRepository $formuleRepository)
+    public function __construct(private FormuleRepository $formuleRepository)
     {
     }
 

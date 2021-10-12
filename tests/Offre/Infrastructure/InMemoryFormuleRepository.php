@@ -3,8 +3,9 @@
 namespace Acme\Gym\Test\Offre\Infrastructure;
 
 use Acme\Gym\Offre\Domain\Formule;
+use Acme\Gym\Offre\Domain\FormuleRepository;
 
-class InMemoryFormuleRepository implements \ArrayAccess
+class InMemoryFormuleRepository implements FormuleRepository, \ArrayAccess
 {
     public function __construct(private array $formules = [])
     {
@@ -30,7 +31,7 @@ class InMemoryFormuleRepository implements \ArrayAccess
         // TODO: Implement offsetUnset() method.
     }
 
-    public function ajoute(Formule $formule)
+    public function ajoute(Formule $formule): void
     {
         $this->formules[$formule->id()] = $formule;
     }
