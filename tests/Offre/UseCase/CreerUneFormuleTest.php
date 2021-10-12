@@ -2,6 +2,7 @@
 
 namespace Acme\Gym\Test\Offre\UseCase;
 
+use Acme\Gym\Offre\Domain\Prix;
 use Acme\Gym\Offre\UseCase\CreerUneFormule;
 use Acme\Gym\Test\Offre\Infrastructure\InMemoryFormuleRepository;
 use PHPUnit\Framework\TestCase;
@@ -15,7 +16,7 @@ class CreerUneFormuleTest extends TestCase
     {
         // Arrange
         $id = 1;
-        $prix = 100;
+        $prix = new Prix(100);
         $formuleRepository = new InMemoryFormuleRepository();
         $useCase = new CreerUneFormule($formuleRepository);
 

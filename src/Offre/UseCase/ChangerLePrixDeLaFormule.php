@@ -3,6 +3,7 @@
 namespace Acme\Gym\Offre\UseCase;
 
 use Acme\Gym\Offre\Domain\FormuleRepository;
+use Acme\Gym\Offre\Domain\Prix;
 
 class ChangerLePrixDeLaFormule
 {
@@ -10,7 +11,7 @@ class ChangerLePrixDeLaFormule
     {
     }
 
-    public function execute(int $id, int $nouveauPrix)
+    public function execute(int $id, Prix $nouveauPrix)
     {
         $formule = $this->formuleRepository->cherche($id);
 

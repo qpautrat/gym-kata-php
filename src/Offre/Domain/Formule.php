@@ -8,11 +8,9 @@ class Formule
     /**
      * @param int $id
      */
-    public function __construct(private int $id, private int $prix)
+    public function __construct(private int $id, private Prix $prix)
     {
-        if ($prix < 0) {
-            throw new LePrixNePeutPasEtreNegatif();
-        }
+
     }
 
     public function id()
@@ -20,12 +18,12 @@ class Formule
         return $this->id;
     }
 
-    public function prix(): int
+    public function prix(): Prix
     {
         return $this->prix;
     }
 
-    public function changePrix(int $nouveauPrix)
+    public function changePrix(Prix $nouveauPrix)
     {
         $this->prix = $nouveauPrix;
     }
