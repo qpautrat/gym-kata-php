@@ -19,7 +19,7 @@ class InMemoryAbonnementRepository implements AbonnementRepository, \ArrayAccess
 
     public function offsetGet($offset)
     {
-        // TODO: Implement offsetGet() method.
+        return $this->abonnements[$offset];
     }
 
     public function offsetSet($offset, $value)

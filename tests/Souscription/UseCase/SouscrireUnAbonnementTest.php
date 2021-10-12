@@ -2,7 +2,10 @@
 
 namespace Acme\Gym\Test\Souscription\UseCase;
 
+use Acme\Gym\Offre\Domain\Formule;
+use Acme\Gym\Offre\Domain\Prix;
 use Acme\Gym\Souscription\UseCase\SouscrireUnAbonnement;
+use Acme\Gym\Test\Offre\Infrastructure\InMemoryFormuleRepository;
 use Acme\Gym\Test\Souscription\Infrastructure\InMemoryAbonnementRepository;
 use PHPUnit\Framework\TestCase;
 
@@ -16,12 +19,17 @@ class SouscrireUnAbonnementTest extends TestCase
         // Arrange
         $id = 1;
         $abonnementRepository = new InMemoryAbonnementRepository();
-        $useCase = new SouscrireUnAbonnement($abonnementRepository);
+        $formuleId = 2;
+        $formulePrix = Prix::avecUnMontant(200);
+        $formule = new Formule($formuleId, $formulePrix);
+        $formuleRepository = new InMemoryFormuleRepository([$formuleId => $formule]);
+        $useCase = new SouscrireUnAbonnement($abonnementRepository, $formuleRepository);
 
         // Act
-        $useCase->execute($id);
+        $useCase->execute($id, $formuleId);
 
         // Assert
-        $this->assertTrue(isset($abonnementRepository[$id]));
+        $abonnement = $abonnementRepository[$id];
+        $this->assertEquals($formulePrix->montant(), $abonnement->prix());
     }
 }
